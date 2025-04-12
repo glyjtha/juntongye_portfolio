@@ -5,104 +5,109 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV</title>
+    <link rel="stylesheet" href="../style.css">
+
 </head>
 <body>
-    <nav>
-        <a href="../index.html">Home</a> 
-        <a href="../project/index.html">Projects</a> 
-        <a href="../contact/index.html">Contact</a> 
-        <a href="index.html">CV</a> 
-        <a href="https://github.com/glyjtha" target="_blank">GitHub</a>
-    </nav>
+    <div class="container">
 
-    <header>
-        <h1>Juntong Ye</h1>
-        <p><a href="mailto:Juntongye@gmail.com">Juntongye@gmail.com</a> | (909) 565-5874 | <a href="https://www.linkedin.com/in/juntong-ye-131287297" target="_blank">LinkedIn Profile</a></p>
-    </header>
+        <nav>
+            <a href="../index.html">Home</a> 
+            <a href="../project/index.html">Projects</a> 
+            <a href="../contact/index.html">Contact</a> 
+            <a href="index.html" class="current">CV</a> 
+            <a href="https://github.com/glyjtha" target="_blank">GitHub</a>
+        </nav>
 
-    <section id="education">
-        <h2>Education</h2>
-        <article>
-            <header>
-                <h3>University of California, San Diego</h3>
-                <p>B.S. in Data Science | June 2024 – June 2026</p>
+        <header>
+            <h1>Juntong Ye</h1>
+            <p><a href="mailto:Juntongye@gmail.com">Juntongye@gmail.com</a> | (909) 565-5874 | <a href="https://www.linkedin.com/in/juntong-ye-131287297" target="_blank">LinkedIn Profile</a></p>
+        </header>
+
+        <section id="education">
+            <h2>Education</h2>
+            <article>
+                <header>
+                    <h3>University of California, San Diego</h3>
+                    <p>B.S. in Data Science | June 2024 – June 2026</p>
+                    <ul>
+                        <li><strong>Relevant Coursework:</strong> Principles of Data Science, Theory Foundations of Data Science II, Practice of Data Science</li>
+                    </ul>
+                </header>
+                <header>
+                    <h3>University of California, Irvine</h3>
+                    <p>B.S. in Data Science & Business Information Management | September 2022 – June 2024</p>
+                    <ul>
+                        <li><strong>Dean’s Honor List:</strong> Fall 2022, Spring 2023, Spring 2024</li>
+                        <li><strong>Coursework:</strong> Statistical Computing and Exploratory Data Analysis, Discrete Math and Logic for Computer Science, Data Structure, Machine Learning and Data-Mining, Probability, Accounting Principles, Management Information Systems, Linear Algebra, Calculus</li>
+                    </ul>
+                </header>
+            </article>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><strong>Programming Languages:</strong> Python, Java, C/C++, JavaScript</li>
+                <li><strong>Data Analysis:</strong> R, SQL, Tableau, SPSS, STATA</li>
+                <li><strong>Tools:</strong> Scikit-learn, Matplotlib, Pandas, Seaborn</li>
+            </ul>
+        </section>
+
+        <section id="research">
+            <h2>Research Experience</h2>
+            <article>
+                <header>
+                    <h3>Socal Data Science, Irvine, CA</h3>
+                    <p>Research Fellow | June 2024 – August 2024</p>
+                </header>
                 <ul>
-                    <li><strong>Relevant Coursework:</strong> Principles of Data Science, Theory Foundations of Data Science II, Practice of Data Science</li>
+                    <li>Preprocessed neural spike data by applying advanced techniques including filtering, temporal alignment with odor release events, and normalization of neuron firing rates, ensuring high-quality data for analysis.</li>
+                    <li>Restructured datasets with Python by merging related rows into single entries and transformed data from long to wide format.</li>
+                    <li>Designed and implemented Elastic-Net Regularized Generalized Linear Models (GLM) for Multinomial Logistic Regression, decoding neural firing patterns to predict odor stimuli with a remarkable 98.6% accuracy.</li>
+                    <li>Performed hypothesis testing and cross-validation to validate the model’s reliability and support key research findings.</li>
+                    <li>Presented the findings at a symposium, effectively delivering the research methodologies and results.</li>
                 </ul>
-            </header>
-            <header>
-                <h3>University of California, Irvine</h3>
-                <p>B.S. in Data Science & Business Information Management | September 2022 – June 2024</p>
+            </article>
+            <article>
+                <header>
+                    <h3>Paul Merage School of Business, UC Irvine</h3>
+                    <p>Research Assistant | January 2024 – March 2024</p>
+                </header>
                 <ul>
-                    <li><strong>Dean’s Honor List:</strong> Fall 2022, Spring 2023, Spring 2024</li>
-                    <li><strong>Coursework:</strong> Statistical Computing and Exploratory Data Analysis, Discrete Math and Logic for Computer Science, Data Structure, Machine Learning and Data-Mining, Probability, Accounting Principles, Management Information Systems, Linear Algebra, Calculus</li>
+                    <li>Leveraged Spark NLP and Python to efficiently extract clauses from large-scale datasets, ensuring precision and scalability.</li>
+                    <li>Evaluated model-driven and keyword-based data processing approaches by analyzing accuracy and efficiency metrics, providing actionable insights for optimizing data workflows.</li>
                 </ul>
-            </header>
-        </article>
-    </section>
+            </article>
+        </section>
 
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Programming Languages:</strong> Python, Java, C/C++, JavaScript</li>
-            <li><strong>Data Analysis:</strong> R, SQL, Tableau, SPSS, STATA</li>
-            <li><strong>Tools:</strong> Scikit-learn, Matplotlib, Pandas, Seaborn</li>
-        </ul>
-    </section>
+        <section id="activities">
+            <h2>Activities</h2>
+            <article>
+                <header>
+                    <h3>Learning Assistant</h3>
+                    <p>UCI Course - Introduction to Programming | January 2023 – March 2023</p>
+                </header>
+                <ul>
+                    <li>Helped students with coding in Python and assisted with group collaboration on assignments.</li>
+                    <li>Hosted office hours and graded in-class assignments weekly.</li>
+                </ul>
+            </article>
+        </section>
 
-    <section id="research">
-        <h2>Research Experience</h2>
-        <article>
-            <header>
-                <h3>Socal Data Science, Irvine, CA</h3>
-                <p>Research Fellow | June 2024 – August 2024</p>
-            </header>
-            <ul>
-                <li>Preprocessed neural spike data by applying advanced techniques including filtering, temporal alignment with odor release events, and normalization of neuron firing rates, ensuring high-quality data for analysis.</li>
-                <li>Restructured datasets with Python by merging related rows into single entries and transformed data from long to wide format.</li>
-                <li>Designed and implemented Elastic-Net Regularized Generalized Linear Models (GLM) for Multinomial Logistic Regression, decoding neural firing patterns to predict odor stimuli with a remarkable 98.6% accuracy.</li>
-                <li>Performed hypothesis testing and cross-validation to validate the model’s reliability and support key research findings.</li>
-                <li>Presented the findings at a symposium, effectively delivering the research methodologies and results.</li>
-            </ul>
-        </article>
-        <article>
-            <header>
-                <h3>Paul Merage School of Business, UC Irvine</h3>
-                <p>Research Assistant | January 2024 – March 2024</p>
-            </header>
-            <ul>
-                <li>Leveraged Spark NLP and Python to efficiently extract clauses from large-scale datasets, ensuring precision and scalability.</li>
-                <li>Evaluated model-driven and keyword-based data processing approaches by analyzing accuracy and efficiency metrics, providing actionable insights for optimizing data workflows.</li>
-            </ul>
-        </article>
-    </section>
-
-    <section id="activities">
-        <h2>Activities</h2>
-        <article>
-            <header>
-                <h3>Learning Assistant</h3>
-                <p>UCI Course - Introduction to Programming | January 2023 – March 2023</p>
-            </header>
-            <ul>
-                <li>Helped students with coding in Python and assisted with group collaboration on assignments.</li>
-                <li>Hosted office hours and graded in-class assignments weekly.</li>
-            </ul>
-        </article>
-    </section>
-
-    <section id="experience">
-        <h2>Work Experience</h2>
-        <article>
-            <header>
-                <h3>Doctor Zha Medical, Irvine, CA</h3>
-                <p>Administrative Assistant | October 2023 – July 2024</p>
-            </header>
-            <ul>
-                <li>Managed and verified patient information and insurance details, ensuring accurate data input and maintaining patient records.</li>
-                <li>Streamlined administrative processes, including filing, data entry, and updating electronic medical records.</li>
-            </ul>
-        </article>
-    </section>
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <article>
+                <header>
+                    <h3>Doctor Zha Medical, Irvine, CA</h3>
+                    <p>Administrative Assistant | October 2023 – July 2024</p>
+                </header>
+                <ul>
+                    <li>Managed and verified patient information and insurance details, ensuring accurate data input and maintaining patient records.</li>
+                    <li>Streamlined administrative processes, including filing, data entry, and updating electronic medical records.</li>
+                </ul>
+            </article>
+        </section>
+    </div>
 </body>
 </html>

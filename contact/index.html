@@ -5,38 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <link rel="stylesheet" href="../style.css">
+
 </head>
 <body>
-    <nav>
-        <a href="../index.html">Home</a> 
-        <a href="../project/index.html">Projects</a> 
-        <a href="index.html">Contact</a> 
-        <a href="../cv/index.html">CV</a> 
-        <a href="https://github.com/glyjtha" target="_blank">GitHub</a>
-    </nav>
-    <h1>Contact</h1>
+    <div class="container">
 
-    <form action="mailto:juntongye@ucsd.edu" method="POST" enctype="text/plain">
-    <label>
-        Email:
-        <input name="email" type="email" required>
-    </label>
-    <br><br>
+        <nav>
+            <a href="../index.html">Home</a> 
+            <a href="../project/index.html">Projects</a> 
+            <a href="index.html" class="current">Contact</a> 
+            <a href="../cv/index.html">CV</a> 
+            <a href="https://github.com/glyjtha" target="_blank">GitHub</a>
+        </nav>
+        <h1>Contact</h1>
 
-    <label>
-        Subject:
-        <input name="subject">
-    </label>
-    <br><br>
-
-    <label>
-        Body:
-        <br>
-        <textarea name="body" rows="6" cols="40"></textarea>
-    </label>
-    <br><br>
-
-    <button>Submit</button>
-</form>
+        <form action="mailto:juy037@ucsd.edu" method="POST" enctype="text/plain">
+            <label>
+                Email:
+                <input name="email" type="email" required>
+            </label>
+            
+            <label>
+                Subject:
+                <input name="subject">
+            </label>
+            
+            <label>
+                Message:
+                <textarea name="body" rows="6"></textarea>
+            </label>
+            
+            <button>Submit</button>
+            </form>
+            
+    </div>
 </body>
 </html>
