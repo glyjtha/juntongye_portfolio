@@ -6,39 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="../style.css">
+    <script src="../global.js" type="module" defer></script>
 
 </head>
 <body>
-    <div class="container">
-
-        <nav>
-            <a href="../index.html">Home</a> 
-            <a href="../project/index.html">Projects</a> 
-            <a href="index.html" class="current">Contact</a> 
-            <a href="../cv/index.html">CV</a> 
-            <a href="https://github.com/glyjtha" target="_blank">GitHub</a>
-        </nav>
-        <h1>Contact</h1>
-
-        <form action="mailto:juy037@ucsd.edu" method="POST" enctype="text/plain">
-            <label>
-                Email:
-                <input name="email" type="email" required>
-            </label>
-            
-            <label>
-                Subject:
-                <input name="subject">
-            </label>
-            
-            <label>
-                Message:
-                <textarea name="body" rows="6"></textarea>
-            </label>
-            
-            <button>Submit</button>
-            </form>
-            
-    </div>
+    <h1>Contact</h1>
+    <form class="contact-form" action="mailto:juy037@ucsd.edu">
+    
+        <label for="subject">Subject:</label>
+        <input id="subject" name="subject">
+        <br><br>
+    
+        <label for="body">Message:</label>
+        <textarea id="body" name="body"></textarea>
+        <br><br>
+    
+        <button type="submit">Send</button>
+       
+      </form>
 </body>
 </html>

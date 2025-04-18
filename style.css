@@ -1,129 +1,217 @@
-body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-     font: "Helvetica Neue";
-}
+
 
 :root {
-  --color-accent: oklch(65% 50% 0); /* You can tweak this to your favorite tone */
-  accent-color: var(--color-accent);
+  color-scheme: light;
+  --bg-color: #fff; 
+  --text-color: #000;
+  --hover-color: #eb5573;
+  --light-hover-color:oklch(81.42% 0.1 11);
 }
 
-.container {
+/*SET THEME FOR THE PAGE*/
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg-color: #222;
+    --text-color: #ddd;
+    --hover-color: #E6E6FA;
+    --light-hover-color:oklch(81.42% 0.0419 282.71);
+  }
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg-color: #fff; 
+  --text-color: #000;
+  --hover-color: #eb5573;
+  --light-hover-color:oklch(81.42% 0.1 11)；
+}
+
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-color: #222;
+  --text-color: #ddd;
+  --hover-color: #b2b2f3;
+  --light-hover-color:oklch(81.42% 0.0419 282.71);
+}
+
+:root[data-theme="green"] {
+  color-scheme: light; 
+  --bg-color: #e6ffe6;  /* pale green background */
+  --text-color: #003300; /* darker green text */
+  --hover-color:#7b815c;
+  --light-hover-color:oklch(81.42% 0.1094 127.06);
+
+}
+
+/* Reset <ul> and <li> */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font: 100%/1.5 system-ui;
   margin-inline: max(1em, (100% - 100ch) / 2);
-  padding-block: 2em;
 }
 
+/*position of the selector*/
+.color-scheme {
+  position: fixed;
+  top: 1rem; 
+  right: 1rem; }
+
+
+/*NAVIGATION*/
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+}
+
+nav ul li {
+  flex: 1;
+  display: contents;
+}
+
+/* Navigation bar container */
 nav {
   display: flex;
-  margin-bottom: 1em;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%; 
   border-bottom: 1px solid oklch(80% 3% 200);
+  box-sizing: border-box;
 }
 
+/* Navigation link styles */
 nav a {
+  align-items: center;
   flex: 1;
-  text-align: center;
   text-decoration: none;
   color: inherit;
+  text-align: center;
   padding: 0.5em;
+  transition: background-color 0.3s ease, border-bottom 0.3s ease; 
 }
 
-/* Style the current page link */
-nav a.current {
-  border-bottom: 0.4em solid oklch(80% 3% 200);
-  padding-bottom: 0.1em; /* reduce padding to offset thicker border */
-  background-color: oklch(from oklch(80% 3% 200) 95% 5% h)
-}
-
+/* Hover effect for links */
 nav a:hover {
-  border-bottom: 0.4em solid var(--color-accent);
-  padding-bottom: 0.1em; /* same compensation as .current */
-  background-color: oklch(from var(--color-accent) 95% 5% h)
+  border-bottom: 0.4em solid var(--hover-color);
+  background-color: color-mix(in srgb, var(--light-hover-color), canvas 80%);
+}
+
+/* Current (active) link styles */
+nav a.current {
+  border-bottom: 0.4em solid var(--hover-color);;
+  font-weight: bold;
+  padding: 0.5em 1em;
 }
 
 
-
-nav a {
-  transition: border-color 0.3s ease;
-}
-
-form {
+/*CONTACT PAGE*/
+/* Contact Form Styling */
+.contact-form {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 3em;
-  font: inherit;
-  max-width: 40rem;
-  margin-inline: auto;
-}
+  gap: 1em;
+  grid-column: 1 / -1;
+  margin: 0 auto;
+  padding: 1em;}
 
+/* Style form labels */
+.contact-form label {
+  font-weight: bold;
+  display: block; 
+  margin-block: 0.5em;}
 
-label {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1 / -1; /* make label span both columns */
-}
-
-input,
-textarea {
-  width: 100%;
-  box-sizing: border-box;
+/* Style form inputs and textareas */
+.contact-form input,
+.contact-form textarea {
+  display: block;
   font: inherit;
   padding: 0.5em;
-  border: 1px solid oklch(80% 3% 200);
-  border-radius: 6px;
-  background: white;
+  box-sizing: border-box;
+  width: 100%; 
+  margin-block: 0.5em;
+  border: 0.1em solid darkgray;
+  border-radius: 0.5em;
 }
 
-button {
-  grid-column: 1 / -1;
-  padding: 0.75em;
+/* Style the submit button */
+.contact-form button {
   font: inherit;
-  background-color: var(--color-accent);
+  background-color: var(--hover-color); 
   color: white;
   border: none;
-  border-radius: 6px;
   cursor: pointer;
-  text-align: center;
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-block: 0.5em;
 }
 
-button:hover {
-  background-color: oklch(60% 50% 0); /* darker accent */
+.contact-form button:hover {
+  background-color: var(--color-accent-hover, #0056b3);
 }
 
+/* Adjust textarea height */
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
 
+/* PROJECT PAGE*/
+/* Projects Grid Container */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
   gap: 1em;
-  margin-top: 1em;
-}
+  padding: 1em; 
+  box-sizing: border-box;}
 
-
+/* Article Elements */
 .projects article {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-  background: #fff;
-  padding: 1em;
-  border: 1px solid oklch(90% 3% 200);
+  gap: 0.5em;
+  border: 1px solid #ccc;
   border-radius: 0.5em;
-  box-shadow: 0 0 0.25em rgba(0,0,0,0.05);
+  padding: 1em; 
 }
 
-.projects h2 {
+/* Aligning Content Inside Articles */
+.projects article h2 {
   margin: 0;
+  font-size: 1.5em;
 }
 
-h1 {
-  font-size: 400%;
-  margin-bottom: 0.5em;
+.projects article img {
+  width: 100%;
+  height: auto;
 }
 
+.projects article p {
+  margin: 0.5em 0;
+}
+
+
+/* Global Heading Styles */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
+
+/* Specific Adjustments for h1 */
+h1 {
+  font-size: 400%;
+}
+
+/* Specific Adjustments for h2 */
+h2 {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
 /* CV PAGE */
 /* Resume Sections */
 #education, #skills, #research, #activities, #experience {
@@ -192,4 +280,5 @@ header a {
 header a:hover {
   text-decoration: underline;
 }
+
 
