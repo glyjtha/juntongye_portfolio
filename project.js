@@ -1,7 +1,7 @@
-import { fetchJSON, renderProjects } from '../global.js';
+import { fetchJSON, renderProjects } from '/juntongye_portfolio/global.js';
 
 (async () => {
-  const projects = await fetchJSON('../projects.json');
+  const projects = await fetchJSON('/juntongye_portfolio/project.json');  // 注意这个路径
   console.log('✅ Projects loaded:', projects);
 
   const projectsContainer = document.querySelector('.projects');

@@ -98,8 +98,9 @@ form?.addEventListener('submit', function (e) {
 });
 
 export async function fetchJSON(url) {
+  console.log('🔍 Trying to fetch:', url); // 加一行打印
+
   try {
-    // Fetch the JSON file from the given URL
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Failed to fetch projects: ${response.statusText}`);
@@ -110,6 +111,7 @@ export async function fetchJSON(url) {
     console.error('Error fetching or parsing JSON data:', error);
   }
 }
+
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   // Step 2: Clear existing content to avoid duplication
