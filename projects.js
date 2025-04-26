@@ -1,9 +1,11 @@
 import { fetchJSON, renderProjects } from '../global.js';
 
 (async () => {
-  const projects = await fetchJSON('../lib/projects.json');
+  const projects = await fetchJSON('../projects.json'); // ✅ fixed path
+  console.log('✅ Projects loaded:', projects);
 
   const projectsContainer = document.querySelector('.projects');
+  console.log('📦 Container found?', projectsContainer);
 
   if (projects && projects.length > 0) {
     renderProjects(projects, projectsContainer, 'h2');
