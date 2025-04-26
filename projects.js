@@ -1,7 +1,8 @@
 import { fetchJSON, renderProjects } from '../global.js';
 
 (async () => {
-  const projects = await fetchJSON('../projects.json'); // ✅ fixed path
+  const projects = await fetchJSON('../projects.json');
+
   console.log('✅ Projects loaded:', projects);
 
   const projectsContainer = document.querySelector('.projects');
