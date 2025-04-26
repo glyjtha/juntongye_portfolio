@@ -1,4 +1,4 @@
-import { fetchJSON, renderProjects } from '/juntongye_portfolio/global.js';  
+import { fetchJSON, renderProjects,fetchGitHubData } from '/juntongye_portfolio/global.js';  
 
 (async () => {
   // 1. Fetch all projects
@@ -18,4 +18,30 @@ import { fetchJSON, renderProjects } from '/juntongye_portfolio/global.js';
   if (titleElement) {
     titleElement.textContent = `Projects (${projects.length})`;
   }
+
+  // 6. Fetch GitHub profile data
+  const githubData = await fetchGitHubData('glyjtha');
+  console.log('GitHub Profile:', githubData);
+
+  // 7. Optional: 如果想在页面上显示GitHub数据
+  const profileStats = document.querySelector('#profile-stats');
+
+  if (profileStats) {
+    profileStats.innerHTML = `
+      <div class="github-card">
+        <img src="${githubData.avatar_url}" alt="GitHub Avatar" class="github-avatar">
+        <div class="github-info">
+          <h2>My GitHub Stats</h2>
+          <dl class="github-stats">
+            <dt>Followers</dt><dd>${githubData.followers}</dd>
+            <dt>Following</dt><dd>${githubData.following}</dd>
+            <dt>Public Repos</dt><dd>${githubData.public_repos}</dd>
+            <dt>Public Gists</dt><dd>${githubData.public_gists}</dd>
+          </dl>
+        </div>
+      </div>
+    `;
+  }
+  
+
 })();

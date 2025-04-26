@@ -282,3 +282,49 @@ header a:hover {
 }
 
 
+.github-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.github-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.github-info {
+  flex: 1;
+}
+
+.github-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.github-stats dt {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #6b7280;
+  text-transform: uppercase;
+  grid-row: 1;
+}
+
+.github-stats dd {
+  font-size: 1.8rem;
+  margin: 0;
+  grid-row: 2;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.github-stats dd:hover {
+  transform: scale(1.2);
+}
