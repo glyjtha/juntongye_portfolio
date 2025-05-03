@@ -24,7 +24,7 @@
   --bg-color: #fff; 
   --text-color: #000;
   --hover-color: #eb5573;
-  --light-hover-color:oklch(81.42% 0.1 11)；
+  --light-hover-color:oklch(81.42% 0.1 11);
 }
 
 
@@ -327,4 +327,103 @@ header a:hover {
 
 .github-stats dd:hover {
   transform: scale(1.2);
+}
+
+
+#legend {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: nowrap;         /* 不允许换行 */
+  overflow-x: auto;          /* 防止内容挤下去，启用横向滚动 */
+  margin: 2rem 0;
+}
+
+
+/* 饼图尺寸固定，避免被压缩 */
+#projects-pie-plot {
+  width: 300px;
+  height: 300px;
+}
+
+/* 图例样式 */
+.legend {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: row;      /* 横向排列年份 */
+  flex-wrap: wrap;          /* 小屏幕可以换行 */
+  gap: 1em;                /* 年份之间留点空隙 */
+  padding: 1rem 2rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  justify-content: space-around; /* 横向居中 */
+  align-items: center;
+}
+
+
+/* 每项图例 */
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  color: inherit; /* 使用系统默认文本色 */
+}
+
+/* 彩色小圆点 */
+/* 原来 swatch 的基础样式 */
+.legend .swatch {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+input {
+  width: 97%;
+  height: 3em;
+  padding: 0 1em;
+  font-size: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+path {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#projects-pie-plot.hovering path:not(.hovered) {
+  opacity: 0.5;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
+
+/* 改变选中 swatch 的颜色 */
+.legend .selected .swatch {
+  background-color: oklch(60% 45% 0) !important;
 }
