@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meta Summary Stats</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../global.js" type="module" defer></script>
+</head>
+<body>
+    <script type="module" src="main.js"></script>
+    <section class="summary-stats">
+        <div class="stat">
+          <div class="stat-value" id="stat-commits">--</div>
+          <div class="stat-label">COMMITS</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-loc">--</div>
+          <div class="stat-label">TOTAL LOC</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-time">--</div>
+          <div class="stat-label">TIME OF DAY</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-file">--</div>
+          <div class="stat-label">NUMBER OF FILE</div>
+        </div>
+    </section>
+    <h2>Commits by time of day</h2>
+    <div id="chart"></div>
+
+    <p id="selection-count">No commits selected</p>
+    <dl id="language-breakdown" class="breakdown"></dl>
+
+  <!-- load your D3‐powered script as an ES module -->
+</body>
+</html>

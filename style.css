@@ -427,3 +427,135 @@ path {
 .legend .selected .swatch {
   background-color: oklch(60% 45% 0) !important;
 }
+
+.summary-stats {
+  margin: 3rem auto 0;   /* top 3rem, right/left auto, bottom 0 */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+
+.stat {
+  text-align: center;
+  justify-self: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #555;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+
+/* Grid-layout for any <dl class="info"> */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2em 1em;
+  margin: 0;           /* remove default DL margins */
+  padding: 0.5em;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Position this DL as a fixed tooltip */
+/* Tooltip should be absolutely positioned within #chart */
+.tooltip {
+  position: absolute;
+  pointer-events: none;  /* so it doesn’t block the brush or hover */
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: opacity 200ms;
+}
+
+/* style the “N commits selected” */
+/* the line “2 commits selected” */
+/* —— 统计标题 ————————————————— */
+#selection-count{
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: left;      /* 和示例保持左对齐；改成 center 也行 */
+}
+
+/*—— 容器：横向三块 ——*/
+/* 统计容器：横向 3 列 */
+.breakdown{
+  display: flex;
+  justify-content: space-around;
+  gap: 3rem;
+  margin: 1.5rem auto 2.5rem;
+  padding: 0;
+  max-width: 960px;
+}
+
+/* 语言块内部：一列若干行 */
+.breakdown dt,
+.breakdown dd{s
+  margin: 0;
+  text-align: center;
+  font-size: 1.3rem;    /* ← 想要的统一字号 */
+  line-height: 1.25;
+}
+
+/* 仅语言名加粗即可，其余保持同字号 */
+.breakdown dt{
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* 如果仍想让数字稍突出，可只加粗而不变大 */
+.breakdown dd.num{
+  font-weight: 700;
+}
+
+
+
+
+/* Hover animation on circles */
+circle {
+  transition: 200ms transform;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+  fill: steelblue;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  stroke: #333;
+  stroke-width: 2px;
+  fill-opacity: 1;
+}
+
