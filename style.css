@@ -611,13 +611,16 @@ circle.selected {
   line-height: 1.5;
 }
 
-/* 双栏 */
 #scrolly-1      { display:flex; gap:1.5rem; margin-block:4rem; }
 #scrolly-1 > *  { flex:1; }
 
-/* 右侧散点图粘滞 */
 #scatter-plot{
   position:sticky;
   top:1rem;         
   height:50vh;       
 }
+
+#scatter-story {
+  position: relative;
+}
+
