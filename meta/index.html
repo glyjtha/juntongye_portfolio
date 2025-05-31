@@ -6,7 +6,6 @@
   <title>Meta Summary Stats</title>
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* 仅与滚动布局相关的补丁 —— 其余仍在 style.css */
     .scrolly{display:flex;gap:1.5rem;margin-block:4rem}
     .scrolly>.story,.scrolly>.graphic{flex:1}
     .scrolly--flip{flex-direction:row-reverse}
@@ -17,7 +16,7 @@
 </head>
 <body>
     <script type="module" src="main.js"></script>
-    <div class="filter-controls" style="display: flex; align-items: baseline; margin-bottom: 1rem;">
+    <div class="filter-controls">
       <label for="commit-progress" style="flex: 1;">
         Show commits until:
         <input
