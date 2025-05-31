@@ -261,6 +261,23 @@ function onTimeSliderChange() {
   console.log('   timeLabel.node().textContent =', timeLabel.node().textContent);
   filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
   console.log(filteredCommits)
+  d3.select('#stat-commits').text(filteredCommits.length);
+
+  const totalLOC = d3.sum(filteredCommits, c => c.totalLines);
+  d3.select('#stat-loc').text(totalLOC);
+
+  if (filteredCommits.length) {
+    const hours = filteredCommits.map(c => c.hourFrac);
+    const minHour = d3.min(hours).toFixed(2);
+    const maxHour = d3.max(hours).toFixed(2);
+    d3.select('#stat-time').text(`${minHour} → ${maxHour}`);
+  } else {
+    d3.select('#stat-time').text('--');
+  }
+
+  const allFiles = filteredCommits.flatMap(c => c.lines.map(l => l.file));
+  const uniqueFiles = new Set(allFiles).size;
+  d3.select('#stat-file').text(uniqueFiles);
   updateScatterPlot(data, filteredCommits);
   updateFileDisplay(filteredCommits)
 
