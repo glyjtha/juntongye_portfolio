@@ -68,7 +68,7 @@ function renderCommitInfo(data, commits) {
 let xScale;
 let yScale;
 let data    = await loadData();
-let commits = processCommits(data);
+let commits = d3.sort(processCommits(data), d => d.datetime);
 console.log(commits);     
 const colors = d3.scaleOrdinal(d3.schemeTableau10);
 const hours      = commits.map(c => c.hourFrac);
@@ -84,10 +84,6 @@ d3.select('#stat-file')   .text(uniqueFiles);
 
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
-
-
-
-
 
 
 const fileLengths = d3.rollups(
@@ -148,7 +144,7 @@ filesContainer.select('dt > code').text((d) => d.name);
 filesContainer.select('dd').text((d) => `${d.lines.length} lines`);
 console.log('scatter-story');
 
-d3.select('#scatter-story')
+d3.select('#steps-1')
   .selectAll('.step')
   .data(commits)
   .join('div')
@@ -189,14 +185,14 @@ function onStepEnter({ element }) {
 
 d3.select('#steps-1')
   .append('div')
-  .attr('class', 'step intro')          // extra class 方便定制
-  .html(`<p>I just opened the repo — let’s see what happens next…</p>`);
+  .data(commits) 
+  .attr('class', 'step intro');
 
 d3.select('#steps-1')
   .selectAll('div.step.commit')
   .data(commits)
   .join('div')
-    .attr('class')
+  .attr('class')
   
 
 scrollama()
@@ -206,18 +202,30 @@ scrollama()
     offset: 0.5                        // 滚到视窗中线触发
   })
   .onStepEnter(onStepEnter);
-
 d3.select('#steps-2')
-.selectAll('.step')
-.data(commits)          // 这里仍然用全部 commit；也可只选部分
-.join('div')
-  .attr('class', 'step')
-  .html(d => `
-    <p>
-      At ${d.datetime.toLocaleString('en', { dateStyle:'medium', timeStyle:'short' })},
-      I touched <strong>${d.lines.length}</strong> lines.
-    </p>
-  `);
+  .selectAll('.step')
+  .data(commits)
+  .join('div')
+    .attr('class', 'step')
+    .html(d => {
+      const fileCount = d3.rollups(
+        d.lines,
+        linesArr => linesArr.length,
+        line => line.file
+      ).length;
+
+      return `
+        <p>
+          On <strong>${d.datetime.toLocaleString('en', {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+          })}</strong>,
+          I edited <strong>${d.totalLines}</strong> lines
+          across <strong>${fileCount}</strong> files.
+        </p>
+      `;
+    });
+
 function onStepEnter2({ element }) {
   const commit = element.__data__;
   const filtered = commits.filter(c => c.datetime <= commit.datetime);
